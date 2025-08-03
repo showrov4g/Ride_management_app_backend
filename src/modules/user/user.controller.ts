@@ -68,6 +68,31 @@ const unBlockUser = async (req: Request, res: Response)=>{
 }
 
 
+// approve driver controller 
+
+const approveDriver =  async(req: Request, res: Response)=>{
+    const result = await  UserServices.approveDriver(req.params.id)
+    sendResponse(res,{
+        success: true,
+        statusCode: 200,
+        message: "Driver Approve",
+        data: result
+    })
+}
+
+// suspendDriver 
+
+const suspendDriver = async( req:Request, res: Response)=>{
+    const result =  await UserServices.suspendDriver(req.params.id);
+    sendResponse(res,{
+        success: true,
+        statusCode: 200,
+        message: "driver suspense",
+        data: result
+    })
+
+}
+
 
 
 
@@ -76,5 +101,7 @@ export const UserController = {
     getProfile,
     updateProfile,
     blockUser,
-    unBlockUser
+    unBlockUser,
+    approveDriver,
+    suspendDriver
 }
