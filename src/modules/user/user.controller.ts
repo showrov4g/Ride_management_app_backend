@@ -46,12 +46,35 @@ const updateProfile = async (req: Request, res: Response) => {
     })
 }
 
-const block user 
+// const block user 
+
+const blockUser = async (req: Request, res:Response) =>{
+    const result = await UserServices.blockUser(req.params.id)
+    sendResponse(res,{
+        success: true,
+        statusCode: 200,
+        message: "User Block",
+        data: result
+    })
+}
+const unBlockUser = async (req: Request, res: Response)=>{
+    const result = await UserServices.unBlockUser(req.params.id);
+    sendResponse(res,{
+        success: true,
+        statusCode: 200,
+        message: "User unblock",
+        data: result
+    })
+}
+
+
 
 
 
 export const UserController = {
     getAllUser,
     getProfile,
-    updateProfile
+    updateProfile,
+    blockUser,
+    unBlockUser
 }
