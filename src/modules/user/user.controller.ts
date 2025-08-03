@@ -18,20 +18,40 @@ const getAllUser = async (req: Request, res: Response) => {
 
 const getProfile = async (req: Request, res: Response) => {
     const id = req.user?.id
-    if(!id){
+    if (!id) {
+        throw new AppError(StatusCodes.UNAUTHORIZED, "Id not found")
+    }
+    const user = await UserServices.getUserById(id)
+    sendResponse(res, {
+        success: true,
+        statusCode: 200,
+        message: 'Profile updated',
+        data: user
+    })
+}
+
+// update user profile 
+
+const updateProfile = async (req: Request, res: Response) => {
+    const id = req.user?.id
+    if (!id) {
         throw new AppError(StatusCodes.UNAUTHORIZED, "Id not found")
     }
     const user = await UserServices.updateProfile(id, req.body)
-    sendResponse(res, { 
+    sendResponse(res, {
         success: true,
         statusCode: 200,
-         message: 'Profile updated', 
-         data: user })
+        message: 'Profile updated',
+        data: user
+    })
 }
+
+const block user 
 
 
 
 export const UserController = {
     getAllUser,
-    getProfile
+    getProfile,
+    updateProfile
 }
