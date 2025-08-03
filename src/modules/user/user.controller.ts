@@ -1,0 +1,37 @@
+import { Request, Response } from "express";
+import { UserServices } from "./user.service";
+import { sendResponse } from "../../utils/sendResponse";
+import AppError from "../../handleEoor/AppError";
+import { StatusCodes } from "http-status-codes";
+
+const getAllUser = async (req: Request, res: Response) => {
+    const users = await UserServices.getAllUser();
+    sendResponse(res, {
+        success: true,
+        statusCode: 200,
+        message: 'User data found',
+        data: users
+    })
+}
+
+// get single profile 
+
+const getProfile = async (req: Request, res: Response) => {
+    const id = req.user?.id
+    if(!id){
+        throw new AppError(StatusCodes.UNAUTHORIZED, "Id not found")
+    }
+    const user = await UserServices.updateProfile(id, req.body)
+    sendResponse(res, { 
+        success: true,
+        statusCode: 200,
+         message: 'Profile updated', 
+         data: user })
+}
+
+
+
+export const UserController = {
+    getAllUser,
+    getProfile
+}
