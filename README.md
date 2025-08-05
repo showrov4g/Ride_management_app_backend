@@ -3,12 +3,12 @@
 
 A secure, scalable, and role-based backend API for a ride booking system (like Uber or Pathao) built using **Node.js**, **Express.js**, **MongoDB**, and **TypeScript**.
 
----
+-
 
 ## 🧠 Technologies Used
 
 | Category   | Tools                             |
-|------------|-----------------------------------|
+||-|
 | ⚙️ Runtime | Node.js                           |
 | 🔧 Framework | Express.js                     |
 | 🧠 Language | TypeScript                       |
@@ -16,7 +16,7 @@ A secure, scalable, and role-based backend API for a ride booking system (like U
 | 🛡️ Security | JWT, bcrypt                     |
 | 📦 Others   | cors, cookie-parser, zod, dotenv |
 
----
+-
 
 ## 🏗️ Features
 
@@ -27,7 +27,7 @@ A secure, scalable, and role-based backend API for a ride booking system (like U
 - Ride status lifecycle management
 - Error handling and validation using Zod
 
----
+-
 
 ## ⚙️ Setup Instructions
 
@@ -57,87 +57,87 @@ JWT_SECRET=your_secret_key
 npm run dev
 ```
 
----
+-
 
 ## 📮 API Endpoints Overview
 ```bash
-- base URL = http://localhost:5000
+- base URL = https://ride-management-app-backend.vercel.app/
 ```
 ## auth routes 
 ```bash
--- post= http://localhost:5000/api/v1/auth/register
+ post= https://ride-management-app-backend.vercel.app/api/v1/auth/register
 ```
 
 ```bash
--- post= http://localhost:5000/api/v1/auth/login
+ post= https://ride-management-app-backend.vercel.app/api/v1/auth/login
 ```
 
 ## user routes
 ```bash
--- get = http://localhost:5000/api/v1/users/all 
+ get = https://ride-management-app-backend.vercel.app/api/v1/users/all 
 ```
 ```bash
--- patch= http://localhost:5000/api/v1/users/block/:id
+ patch= https://ride-management-app-backend.vercel.app/api/v1/users/block/:id
 ```
 ```bash
--- patch= http://localhost:5000/api/v1/users/unblock/:id
+ patch= https://ride-management-app-backend.vercel.app/api/v1/users/unblock/:id
 ```
 
 
 ## Rides api
 ```bash
--- post =  http://localhost:5000/api/v1/rides/request
+ post =  https://ride-management-app-backend.vercel.app/api/v1/rides/request
 ```
 ```bash
--- patch =  http://localhost:5000/api/v1/cancel/:rideId
+ patch =  https://ride-management-app-backend.vercel.app/api/v1/cancel/:rideId
 ```
 ```bash
--- get =  http://localhost:5000/api/v1/rides/history
+ get =  https://ride-management-app-backend.vercel.app/api/v1/rides/history
 ```
 
 
 ## driver api 
 ```bash
--- patch = http://localhost:5000/api/v1/driver/availability
+ patch = https://ride-management-app-backend.vercel.app/api/v1/driver/availability
 ```
 ```bash
--- get = http://localhost:5000/api/v1/driver/rides
+ get = https://ride-management-app-backend.vercel.app/api/v1/driver/rides
 ```
 ```bash
--- get = http://localhost:5000/api/v1/driver/earnings
+ get = https://ride-management-app-backend.vercel.app/api/v1/driver/earnings
 ```
 ```bash
--- patch =http://localhost:5000/api/v1/driver/status/:rideId
+ patch =https://ride-management-app-backend.vercel.app/api/v1/driver/status/:rideId
 ```
 ```bash
--- patch=http://localhost:5000/api/v1/driver/accept/:rideId
+ patch=https://ride-management-app-backend.vercel.app/api/v1/driver/accept/:rideId
 ```
 ```bash
--- patch=http://localhost:5000/api/v1/driver/reject/:rideId
+ patch=https://ride-management-app-backend.vercel.app/api/v1/driver/reject/:rideId
 ```
 
 
 ## admin routes 
  ```bash
--- get= http://localhost:5000/api/v1/admin/users
+ get= https://ride-management-app-backend.vercel.app/api/v1/admin/users
 ```
 ```bash
--- get= http://localhost:5000/api/v1/admin/drivers
+ get= https://ride-management-app-backend.vercel.app/api/v1/admin/drivers
 ```
 ```bash
--- get= http://localhost:5000/api/v1/admin/rides
+ get= https://ride-management-app-backend.vercel.app/api/v1/admin/rides
 ```
 ```bash
--- patch= http://localhost:5000/api/v1/admin/driver/approve/:id
+ patch= https://ride-management-app-backend.vercel.app/api/v1/admin/driver/approve/:id
 ```
 ```bash
--- patch= http://localhost:5000/api/v1/admin/driver/suspend/:id
+ patch= https://ride-management-app-backend.vercel.app/api/v1/admin/driver/suspend/:id
 ```
 ```bash
--- patch= http://localhost:5000/api/v1/admin/user/block/:id
+ patch= https://ride-management-app-backend.vercel.app/api/v1/admin/user/block/:id
 ```
 ```bash
--- patch= http://localhost:5000/api/v1/admin/user/unblock/:id
+ patch= https://ride-management-app-backend.vercel.app/api/v1/admin/user/unblock/:id
 ```
 
 ## 👨‍💻 Project Structure
