@@ -64,78 +64,102 @@ npm run dev
 - base URL = https://ride-management-app-backend.vercel.app/
 ```
 ## auth routes 
+register user
 ```bash
  post= https://ride-management-app-backend.vercel.app/api/v1/auth/register
 ```
 
+Login user
 ```bash
  post= https://ride-management-app-backend.vercel.app/api/v1/auth/login
 ```
 
 ## user routes
+get all user data
 ```bash
  get = https://ride-management-app-backend.vercel.app/api/v1/users/all 
 ```
+user block
 ```bash
  patch= https://ride-management-app-backend.vercel.app/api/v1/users/block/:id
 ```
+user unblock
 ```bash
  patch= https://ride-management-app-backend.vercel.app/api/v1/users/unblock/:id
 ```
 
 
 ## Rides api
+request ride 
 ```bash
  post =  https://ride-management-app-backend.vercel.app/api/v1/rides/request
 ```
+ride calcle
 ```bash
  patch =  https://ride-management-app-backend.vercel.app/api/v1/cancel/:rideId
 ```
+ride history
 ```bash
  get =  https://ride-management-app-backend.vercel.app/api/v1/rides/history
 ```
 
 
 ## driver api 
+driver availability
 ```bash
  patch = https://ride-management-app-backend.vercel.app/api/v1/driver/availability
 ```
+driver rides
 ```bash
  get = https://ride-management-app-backend.vercel.app/api/v1/driver/rides
 ```
+drivers earnings
 ```bash
  get = https://ride-management-app-backend.vercel.app/api/v1/driver/earnings
 ```
+driver ride status check
+
 ```bash
  patch =https://ride-management-app-backend.vercel.app/api/v1/driver/status/:rideId
 ```
+ride accept
 ```bash
  patch=https://ride-management-app-backend.vercel.app/api/v1/driver/accept/:rideId
 ```
+ride reject
 ```bash
  patch=https://ride-management-app-backend.vercel.app/api/v1/driver/reject/:rideId
 ```
 
 
 ## admin routes 
+get all users
  ```bash
  get= https://ride-management-app-backend.vercel.app/api/v1/admin/users
 ```
+get all drivers
 ```bash
  get= https://ride-management-app-backend.vercel.app/api/v1/admin/drivers
 ```
+get all rides
 ```bash
  get= https://ride-management-app-backend.vercel.app/api/v1/admin/rides
 ```
+drivers approve
 ```bash
  patch= https://ride-management-app-backend.vercel.app/api/v1/admin/driver/approve/:id
 ```
+drivers suspend
+
 ```bash
  patch= https://ride-management-app-backend.vercel.app/api/v1/admin/driver/suspend/:id
+
 ```
+user block
 ```bash
  patch= https://ride-management-app-backend.vercel.app/api/v1/admin/user/block/:id
 ```
+user unblock
 ```bash
  patch= https://ride-management-app-backend.vercel.app/api/v1/admin/user/unblock/:id
 ```
