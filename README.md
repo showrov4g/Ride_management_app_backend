@@ -1,24 +1,24 @@
 
-# 🚗 Ride Booking API
+#  Ride Booking API
 
 A secure, scalable, and role-based backend API for a ride booking system (like Uber or Pathao) built using **Node.js**, **Express.js**, **MongoDB**, and **TypeScript**.
 
 -
 
-## 🧠 Technologies Used
+##  Technologies Used
 
 | Category   | Tools                             |
 ||-|
-| ⚙️ Runtime | Node.js                           |
-| 🔧 Framework | Express.js                     |
-| 🧠 Language | TypeScript                       |
-| 🛢️ Database | MongoDB + Mongoose              |
-| 🛡️ Security | JWT, bcrypt                     |
-| 📦 Others   | cors, cookie-parser, zod, dotenv |
+|  Runtime | Node.js                           |
+|  Framework | Express.js                     |
+|  Language | TypeScript                       |
+|  Database | MongoDB + Mongoose              |
+|  Security | JWT, bcrypt                     |
+|  Others   | cors, cookie-parser, zod, dotenv |
 
 -
 
-## 🏗️ Features
+##  Features
 
 - Rider can request, cancel, and view ride history
 - Driver can accept, complete, and view ride requests
@@ -28,8 +28,8 @@ A secure, scalable, and role-based backend API for a ride booking system (like U
 - Error handling and validation using Zod
 
 -
-
-## ⚙️ Setup Instructions
+## if you want to run this project in your own computer then follow this steps 
+##  Setup Instructions
 
 ### 1. Clone the repository
 ```bash
@@ -59,7 +59,7 @@ npm run dev
 
 -
 
-## 📮 API Endpoints Overview
+##  API Endpoints Overview
 ```bash
 - base URL = https://ride-management-app-backend.vercel.app/
 ```
@@ -140,7 +140,7 @@ npm run dev
  patch= https://ride-management-app-backend.vercel.app/api/v1/admin/user/unblock/:id
 ```
 
-## 👨‍💻 Project Structure
+##  Project Structure
 
 ```
 src/
