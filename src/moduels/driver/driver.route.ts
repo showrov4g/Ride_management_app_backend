@@ -7,8 +7,8 @@ const router = express.Router();
 router.patch('/availability', authGuard(['driver']), DriverController.updateAvailability);
 router.get('/rides', authGuard(['driver']), DriverController.getMyRides);
 router.get('/earnings', authGuard(['driver']), DriverController.getEarnings);
-router.patch('/ride/:rideId/status', authGuard(['driver']), DriverController.updateRideStatus);
-router.post('/ride/:rideId/accept', authGuard(['driver']), DriverController.acceptRide);
-router.post('/ride/:rideId/reject', authGuard(['driver']), DriverController.rejectRide);
+router.patch('/status/:rideId', authGuard(['driver']), DriverController.updateRideStatus);
+router.patch('/accept/:rideId', authGuard(['driver']), DriverController.acceptRide);
+router.post('reject/:rideId', authGuard(['driver']), DriverController.rejectRide);
 
 export const driverRoutes = router;

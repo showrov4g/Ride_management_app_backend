@@ -2,9 +2,10 @@ import dotenv from "dotenv"
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser";
-import { userRoutes } from "./moduels/user/user.route";
 import { authRoutes } from "./moduels/auth/auth.route";
+import { userRoutes } from "./moduels/user/user.route";
 import { riderRoutes } from "./moduels/ride/rider.route";
+import { driverRoutes } from "./moduels/driver/driver.route";
 
 dotenv.config();
 
@@ -18,7 +19,8 @@ app.use(cookieParser())
 
 app.use('/api/v1/auth', authRoutes);
 app.use("/api/v1/users", userRoutes);
-app.use('/api/v1/rider', riderRoutes);
+app.use('/api/v1/rides', riderRoutes);
+app.use('/api/v1/driver', driverRoutes);
 
 
 app.get('/',(req, res)=>{

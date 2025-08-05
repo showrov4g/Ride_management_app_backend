@@ -1,49 +1,55 @@
-import { Ride } from '../ride/ride.model';
+import { Ride, IRide } from '../ride/ride.model';
 
+const requestRide = async (
+  riderId: string,
+  pickup: string,
+  destination: string
+): Promise<IRide> => {
+  const existing = await Ride.findOne({
+    rider: riderId,
+    status: { $in: ['requested', 'accepted', 'picked_up', 'in_transit'] },
+  });
 
-  const requestRide= async (riderId: string, pickup: string, destination: string) => {
-    
-    const existing = await Ride.findOne({
-      rider: riderId,
-      status: { $in: ['requested', 'accepted', 'picked_up', 'in_transit'] },
-    });
-
-    if (existing) {
-      throw new Error('You already have an active ride');
-    }
-
-    const ride = await Ride.create({
-      rider: riderId,
-      pickup,
-      destination,
-      status: 'requested',
-      statusHistory: [{ status: 'requested', timestamp: new Date() }],
-    });
-
-    return ride;
+  if (existing) {
+    throw new Error('You already have an active ride');
   }
 
- const cancelRide = async (riderId: string, rideId: string) => {
-    const ride = await Ride.findOne({ _id: rideId, rider: riderId });
+  const ride = await Ride.create({
+    rider: riderId,
+    pickup,
+    destination,
+    status: 'requested',
+    statusHistory: [{ status: 'requested', timeStamp: new Date() }],
+  });
 
-    if (!ride) throw new Error('Ride not found');
-    if (ride.status !== 'requested') {
-      throw new Error('Cannot cancel ride after it is accepted');
-    }
+  return ride;
+};
 
-    ride.status = 'canceled';
-    ride.statusHistory.push({ status: 'canceled', timestamp: new Date() });
-    await ride.save();
+const cancelRide = async (
+  riderId: string,
+  rideId: string
+): Promise<IRide> => {
+  const ride = await Ride.findOne({ _id: rideId, rider: riderId });
 
-    return ride;
+  if (!ride) throw new Error('Ride not found');
+
+  if (ride.status !== 'requested') {
+    throw new Error('Cannot cancel ride after it is accepted');
   }
 
-  const getRideHistory= async (riderId: string) => {
-    return await Ride.find({ rider: riderId }).sort({ createdAt: -1 });
-  }
+  ride.status = 'canceled';
+  ride.statusHistory.push({ status: 'canceled', timeStamp: new Date() });
 
-export const RiderService ={
-    requestRide,
-    cancelRide,
-    getRideHistory
-}
+  await ride.save();
+  return ride;
+};
+
+const getRideHistory = async (riderId: string): Promise<IRide[]> => {
+  return await Ride.find({ rider: riderId }).sort({ createdAt: -1 });
+};
+
+export const RiderService = {
+  requestRide,
+  cancelRide,
+  getRideHistory,
+};
