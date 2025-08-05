@@ -1,6 +1,5 @@
 import mongoose, { Document, Schema, Types } from "mongoose";
 
-// Ride status গুলো টাইপ হিসেবে ডিফাইন করলাম
 export type RideStatus =
     | "requested"
     | "accepted"
@@ -9,13 +8,11 @@ export type RideStatus =
     | "completed"
     | "canceled";
 
-// StatusHistory এর ইন্টারফেস
 export interface IStatusHistory {
     status: RideStatus;
     timeStamp: Date;
 }
 
-// Ride এর ইন্টারফেস (Document এক্সটেন্ড)
 export interface IRide extends Document {
     rider: Types.ObjectId;
     driver?: Types.ObjectId;

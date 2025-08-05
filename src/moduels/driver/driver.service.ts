@@ -43,22 +43,6 @@ const updateRideStatus = async (
 };
 
 
-// const acceptRide = async (driverId: string, rideId: string) => {
-//   if (!Types.ObjectId.isValid(rideId)) throw new Error('Invalid ride ID');
-
-//   const ride = await Ride.findById(rideId);
-//   if (!ride) throw new Error('Ride not found');
-//   if (ride.status !== 'requested') throw new Error('Ride already accepted or canceled');
-
-  
-//   ride.driver = new Types.ObjectId(driverId);
-//   ride.status = 'accepted';
-//   ride.statusHistory = [{ status: 'accepted', timeStamp: new Date() }];
-//   await ride.save();
-//   return ride;
-// };
-
-
 const acceptRide = async (driverId: string, rideId: string) => {
   if (!Types.ObjectId.isValid(rideId)) throw new Error('Invalid ride ID');
 
@@ -66,10 +50,9 @@ const acceptRide = async (driverId: string, rideId: string) => {
   if (!ride) throw new Error('Ride not found');
   if (ride.status !== 'requested') throw new Error('Ride already accepted or canceled');
 
-  ride.driver = new Types.ObjectId(driverId); // ✅ assign driver
+  ride.driver = new Types.ObjectId(driverId); 
   ride.status = 'accepted';
 
-  // ✅ push instead of replacing history
   ride.statusHistory.push({ status: 'accepted', timeStamp: new Date() });
 
   await ride.save();

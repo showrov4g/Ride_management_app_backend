@@ -6,6 +6,7 @@ import { authRoutes } from "./moduels/auth/auth.route";
 import { userRoutes } from "./moduels/user/user.route";
 import { riderRoutes } from "./moduels/ride/rider.route";
 import { driverRoutes } from "./moduels/driver/driver.route";
+import { adminRoutes } from "./moduels/admin/admin.route";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use('/api/v1/auth', authRoutes);
 app.use("/api/v1/users", userRoutes);
 app.use('/api/v1/rides', riderRoutes);
 app.use('/api/v1/driver', driverRoutes);
+app.use('/api/v1/admin', adminRoutes);
 
 
 app.get('/',(req, res)=>{

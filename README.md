@@ -61,30 +61,43 @@ npm run dev
 
 ## 📮 API Endpoints Overview
 
-### 🔐 Auth
-- `POST /api/v1/auth/register`
-- `POST /api/v1/auth/login`
+- base URL = http://localhost:5000
 
-### 👤 Rider
-- `POST /api/v1/rides/request` - Request a new ride
-- `PATCH /api/v1/rides/cancel/:rideId` - Cancel ride
-- `GET /api/v1/rides/history` - Rider's ride history
-
-### 🚖 Driver
-- `GET /api/v1/driver/rides` - See available rides
-- `PATCH /api/v1/driver/accept/:rideId` - Accept a ride
-- `PATCH /api/v1/driver/status/:rideId` - riding status
-
-### 🛡️ Admin
-- `GET /api/v1/admin/users`
-- `PATCH /api/v1/admin/ban/:userId`
-- `GET /api/v1/admin/rides`
-
----
+## auth routes 
+-- post= http://localhost:5000/api/v1/auth/register
+-- post= http://localhost:5000/api/v1/auth/login
 
 
+## user routes
+-- get = http://localhost:5000/api/v1/users/all 
+-- patch= http://localhost:5000/api/v1/users/block/:id
+-- patch= http://localhost:5000/api/v1/users/unblock/:id
 
----
+
+## Rides api
+-- post =  http://localhost:5000/api/v1/rides/request
+-- patch =  http://localhost:5000/api/v1/cancel/:rideId
+-- get =  http://localhost:5000/api/v1/rides/history
+
+
+## driver api 
+-- patch = http://localhost:5000/api/v1/driver/availability
+-- get = http://localhost:5000/api/v1/driver/rides
+-- get = http://localhost:5000/api/v1/driver/earnings
+-- patch =http://localhost:5000/api/v1/driver/status/:rideId
+-- patch=http://localhost:5000/api/v1/driver/accept/:rideId
+-- patch=http://localhost:5000/api/v1/driver/reject/:rideId
+
+
+## admin routes 
+ 
+-- get= http://localhost:5000/api/v1/admin/users
+-- get= http://localhost:5000/api/v1/admin/drivers
+-- get= http://localhost:5000/api/v1/admin/rides
+-- patch= http://localhost:5000/api/v1/admin/driver/approve/:id
+-- patch= http://localhost:5000/api/v1/admin/driver/suspend/:id
+-- patch= http://localhost:5000/api/v1/admin/user/block/:id
+-- patch= http://localhost:5000/api/v1/admin/user/unblock/:id
 
 ## 👨‍💻 Project Structure
 
@@ -101,11 +114,7 @@ src/
 ├── middleware/
 ├── utils/
 └── config/
-```
 
----
 
-## 📄 License
 
-This project is open-source and available under the [MIT License](LICENSE).
 
